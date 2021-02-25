@@ -1,0 +1,79 @@
+﻿@model GBCSporting2021_TEC.Models.Incident
+
+@{
+    ViewBag.Title = "Delete Incident";
+}
+
+<h2 class="my-3 my-md-4">Delete Incident</h2>
+
+<p class="text-danger">Are you sure you want to delete this?</p>
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.aCustomer.Firstname)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.aCustomer.Firstname)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.aTechnician.Name)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.aTechnician.Name)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Product)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Product)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.DateOpened)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DateOpened)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.DateClosed)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DateClosed)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-primary" />
+            @Html.ActionLink("Cancel", "List", null, new { @class="btn btn-primary"})
+        </div>
+    }
+</div>
