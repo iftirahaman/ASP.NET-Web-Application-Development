@@ -1,0 +1,29 @@
+﻿@using GBCSporting2021_TEC.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <p class="py-3 text-danger">You must login with the right privilege to access specific resources.</p>
+    <h6>
+        You are logged in as @User.Identity.GetUserName()
+    </h6>
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "form-inline" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <h2 class="my-3 my-md-4">@ViewBag.Title</h2>
+
+    @Html.Partial("_LoginFormPartial")
+}
